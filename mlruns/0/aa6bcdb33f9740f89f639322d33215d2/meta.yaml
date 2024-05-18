@@ -1,0 +1,15 @@
+artifact_uri: file:///home/deltan/Documents/Chest-cancer-classification-MLOps/mlruns/0/aa6bcdb33f9740f89f639322d33215d2/artifacts
+end_time: 1716034505573
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: aa6bcdb33f9740f89f639322d33215d2
+run_name: lyrical-sow-193
+run_uuid: aa6bcdb33f9740f89f639322d33215d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1716034495270
+status: 3
+tags: []
+user_id: deltan

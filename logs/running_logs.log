@@ -26,3 +26,432 @@ FileNotFoundError: [Errno 2] No such file or directory: '../config/config.yaml'
 [2024-05-06 20:53:50,695: INFO: main: >>> Stage Data Ingestion Stage completed <<<
 
 X=====X]
+[2024-05-18 16:00:15,939: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 16:00:15,941: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:00:15,942: ERROR: main: [Errno 2] No such file or directory: '/home/deltan/Documents/mlflow/Chest-cancer-classification-MLOps/params.yaml']
+Traceback (most recent call last):
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/main.py", line 15, in <module>
+    obj.main()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 13, in main
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/config/configuration.py", line 17, in __init__
+    self.params = read_yaml(params_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/ensure/main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/utils/common.py", line 37, in read_yaml
+    raise e
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/utils/common.py", line 30, in read_yaml
+    with open(path_to_yaml) as yaml_file:
+         ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/deltan/Documents/mlflow/Chest-cancer-classification-MLOps/params.yaml'
+[2024-05-18 16:01:09,357: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 16:01:09,360: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:01:09,362: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:01:09,363: INFO: common: created directory at: artifacts]
+[2024-05-18 16:01:09,363: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 16:01:09,363: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 16:01:24,549: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 16:01:25,483: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 16:01:25,483: INFO: main: *******************]
+[2024-05-18 16:01:25,483: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 16:01:25,485: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:01:25,487: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:01:25,487: INFO: common: created directory at: artifacts]
+[2024-05-18 16:01:25,487: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 16:01:37,818: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 16:01:38,223: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 16:01:38,224: INFO: main: *******************]
+[2024-05-18 16:01:38,224: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 16:01:38,226: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:01:38,228: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:01:38,228: INFO: common: created directory at: artifacts]
+[2024-05-18 16:01:38,228: INFO: common: created directory at: artifacts/training]
+[2024-05-18 16:01:38,774: ERROR: main: [Errno 2] No such file or directory: 'artifacts/data_ingestion/Chest-CT-Scan-data']
+Traceback (most recent call last):
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/main.py", line 42, in <module>
+    model_trainer.main()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/pipeline/stage_03_model_trainer.py", line 20, in main
+    training.train_valid_generator()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/components/model_trainer.py", line 38, in train_valid_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/preprocessing/image.py", line 1648, in flow_from_directory
+    return DirectoryIterator(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/preprocessing/image.py", line 563, in __init__
+    for subdir in sorted(os.listdir(directory)):
+                         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'artifacts/data_ingestion/Chest-CT-Scan-data'
+[2024-05-18 16:04:16,369: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 16:04:16,372: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:04:16,374: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:04:16,374: INFO: common: created directory at: artifacts]
+[2024-05-18 16:04:16,374: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 16:04:16,374: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 16:04:29,711: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 16:04:30,536: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 16:04:30,536: INFO: main: *******************]
+[2024-05-18 16:04:30,536: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 16:04:30,538: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:04:30,540: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:04:30,541: INFO: common: created directory at: artifacts]
+[2024-05-18 16:04:30,541: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 16:04:31,546: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 16:04:32,159: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 16:04:32,160: INFO: main: *******************]
+[2024-05-18 16:04:32,160: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 16:04:32,162: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:04:32,163: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:04:32,164: INFO: common: created directory at: artifacts]
+[2024-05-18 16:04:32,164: ERROR: main: expected str, bytes or os.PathLike object, not ConfigBox]
+Traceback (most recent call last):
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/main.py", line 42, in <module>
+    model_trainer.main()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/pipeline/stage_03_model_trainer.py", line 17, in main
+    training_config = config.get_training_config()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/config/configuration.py", line 62, in get_training_config
+    training_data = os.path.join(self.config.data_ingestion, "Data" "train")
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 76, in join
+TypeError: expected str, bytes or os.PathLike object, not ConfigBox
+[2024-05-18 16:10:25,835: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 16:10:25,837: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:10:25,839: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:10:25,839: INFO: common: created directory at: artifacts]
+[2024-05-18 16:10:25,839: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 16:10:25,840: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 16:10:37,988: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 16:10:38,811: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 16:10:38,811: INFO: main: *******************]
+[2024-05-18 16:10:38,811: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 16:10:38,813: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:10:38,815: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:10:38,815: INFO: common: created directory at: artifacts]
+[2024-05-18 16:10:38,815: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 16:10:39,693: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 16:10:40,300: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 16:10:40,300: INFO: main: *******************]
+[2024-05-18 16:10:40,300: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 16:10:40,303: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 16:10:40,304: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 16:10:40,304: INFO: common: created directory at: artifacts]
+[2024-05-18 16:10:40,305: INFO: common: created directory at: artifacts/training]
+[2024-05-18 16:21:58,816: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-05-18 17:10:10,731: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 17:10:10,732: ERROR: main: [Errno 2] No such file or directory: '../config/config.yaml']
+Traceback (most recent call last):
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/main.py", line 15, in <module>
+    obj.main()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/pipeline/stage_01_data_ingestion.py", line 13, in main
+    config = ConfigurationManager()
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/config/configuration.py", line 16, in __init__
+    self.config = read_yaml(config_filepath)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/ensure/main.py", line 849, in __call__
+    return_val = self.f(*args, **kwargs)
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/utils/common.py", line 37, in read_yaml
+    raise e
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/utils/common.py", line 30, in read_yaml
+    with open(path_to_yaml) as yaml_file:
+         ^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../config/config.yaml'
+[2024-05-18 17:10:43,949: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 17:10:43,953: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:10:43,955: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:10:43,956: INFO: common: created directory at: artifacts]
+[2024-05-18 17:10:43,957: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 17:10:43,957: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:11:03,665: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:11:04,093: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 17:11:04,094: INFO: main: *******************]
+[2024-05-18 17:11:04,094: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 17:11:04,095: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:11:04,096: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:11:04,096: INFO: common: created directory at: artifacts]
+[2024-05-18 17:11:04,098: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 17:11:04,632: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 17:11:04,888: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 17:11:04,889: INFO: main: *******************]
+[2024-05-18 17:11:04,889: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 17:11:04,890: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:11:04,891: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:11:04,891: INFO: common: created directory at: artifacts]
+[2024-05-18 17:11:04,891: INFO: common: created directory at: artifacts/training]
+[2024-05-18 17:21:50,694: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-05-18 17:21:50,697: INFO: main: *******************]
+[2024-05-18 17:21:50,697: INFO: main: >>>>>> stage Evaluation started <<<<<<]
+[2024-05-18 17:21:50,705: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:21:50,708: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:21:50,708: INFO: common: created directory at: artifacts]
+[2024-05-18 17:21:50,710: ERROR: main: No file or directory found at ../artifacts/training/model.h5]
+Traceback (most recent call last):
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/main.py", line 56, in <module>
+    model_eval.main()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/pipeline/stage_04_model_evaluation.py", line 16, in main
+    evaluation.evaluation()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/components/model_evaluation_mlflow.py", line 46, in evaluation
+    self.model = self.load_model(self.config.path_of_model)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/components/model_evaluation_mlflow.py", line 42, in load_model
+    return tf.keras.models.load_model(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/saving/saving_api.py", line 212, in load_model
+    return legacy_sm_saving_lib.load_model(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/utils/traceback_utils.py", line 70, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/saving/legacy/save.py", line 230, in load_model
+    raise IOError(
+OSError: No file or directory found at ../artifacts/training/model.h5
+[2024-05-18 17:25:44,757: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 17:25:44,758: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:25:44,759: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:25:44,760: INFO: common: created directory at: artifacts]
+[2024-05-18 17:25:44,760: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 17:25:44,760: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:25:56,914: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:25:57,468: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 17:25:57,468: INFO: main: *******************]
+[2024-05-18 17:25:57,468: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 17:25:57,470: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:25:57,471: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:25:57,471: INFO: common: created directory at: artifacts]
+[2024-05-18 17:25:57,471: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 17:25:58,040: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 17:25:58,537: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 17:25:58,537: INFO: main: *******************]
+[2024-05-18 17:25:58,537: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 17:25:58,539: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:25:58,540: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:25:58,541: INFO: common: created directory at: artifacts]
+[2024-05-18 17:25:58,541: INFO: common: created directory at: artifacts/training]
+[2024-05-18 17:29:48,985: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-05-18 17:29:48,985: INFO: main: *******************]
+[2024-05-18 17:29:48,985: INFO: main: >>>>>> stage Evaluation started <<<<<<]
+[2024-05-18 17:29:48,988: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:29:48,990: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:29:48,990: INFO: common: created directory at: artifacts]
+[2024-05-18 17:29:49,534: ERROR: main: [Errno 2] No such file or directory: '/home/deltan/Documents/Chest-cancer-classification-MLOps/data_ingestion/Data/train']
+Traceback (most recent call last):
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/main.py", line 56, in <module>
+    model_eval.main()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/pipeline/stage_04_model_evaluation.py", line 16, in main
+    evaluation.evaluation()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/components/model_evaluation_mlflow.py", line 47, in evaluation
+    self._valid_generator()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/components/model_evaluation_mlflow.py", line 32, in _valid_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/preprocessing/image.py", line 1648, in flow_from_directory
+    return DirectoryIterator(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/preprocessing/image.py", line 563, in __init__
+    for subdir in sorted(os.listdir(directory)):
+                         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/deltan/Documents/Chest-cancer-classification-MLOps/data_ingestion/Data/train'
+[2024-05-18 17:31:19,919: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 17:31:19,921: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:31:19,922: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:31:19,923: INFO: common: created directory at: artifacts]
+[2024-05-18 17:31:19,923: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 17:31:19,923: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:31:32,169: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:31:32,830: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 17:31:32,830: INFO: main: *******************]
+[2024-05-18 17:31:32,831: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 17:31:32,832: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:31:32,833: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:31:32,834: INFO: common: created directory at: artifacts]
+[2024-05-18 17:31:32,834: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 17:31:33,534: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 17:31:35,885: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 17:31:35,886: INFO: main: *******************]
+[2024-05-18 17:31:35,886: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 17:31:35,888: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:31:35,889: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:31:35,889: INFO: common: created directory at: artifacts]
+[2024-05-18 17:31:35,889: INFO: common: created directory at: artifacts/training]
+[2024-05-18 17:36:14,765: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-05-18 17:36:14,765: INFO: main: *******************]
+[2024-05-18 17:36:14,766: INFO: main: >>>>>> stage Evaluation started <<<<<<]
+[2024-05-18 17:36:14,767: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:36:14,770: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:36:14,770: INFO: common: created directory at: artifacts]
+[2024-05-18 17:36:15,247: ERROR: main: [Errno 2] No such file or directory: '../artifacts/data_ingestion/Data/train']
+Traceback (most recent call last):
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/main.py", line 56, in <module>
+    model_eval.main()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/pipeline/stage_04_model_evaluation.py", line 16, in main
+    evaluation.evaluation()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/components/model_evaluation_mlflow.py", line 47, in evaluation
+    self._valid_generator()
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/src/cnnClassifier/components/model_evaluation_mlflow.py", line 32, in _valid_generator
+    self.valid_generator = valid_datagenerator.flow_from_directory(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/preprocessing/image.py", line 1648, in flow_from_directory
+    return DirectoryIterator(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/deltan/Documents/Chest-cancer-classification-MLOps/chestCancer/lib/python3.11/site-packages/keras/preprocessing/image.py", line 563, in __init__
+    for subdir in sorted(os.listdir(directory)):
+                         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '../artifacts/data_ingestion/Data/train'
+[2024-05-18 17:39:11,921: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 17:39:11,923: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:39:11,924: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:39:11,924: INFO: common: created directory at: artifacts]
+[2024-05-18 17:39:11,924: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 17:39:11,924: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:39:24,225: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:39:24,925: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 17:39:24,925: INFO: main: *******************]
+[2024-05-18 17:39:24,925: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 17:39:24,926: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:39:24,927: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:39:24,927: INFO: common: created directory at: artifacts]
+[2024-05-18 17:39:24,928: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 17:39:25,604: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 17:39:26,137: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 17:39:26,137: INFO: main: *******************]
+[2024-05-18 17:39:26,137: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 17:39:26,138: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:39:26,139: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:39:26,140: INFO: common: created directory at: artifacts]
+[2024-05-18 17:39:26,140: INFO: common: created directory at: artifacts/training]
+[2024-05-18 17:43:40,353: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-05-18 17:43:40,354: INFO: main: *******************]
+[2024-05-18 17:43:40,354: INFO: main: >>>>>> stage Evaluation started <<<<<<]
+[2024-05-18 17:43:40,355: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:43:40,357: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:43:40,357: INFO: common: created directory at: artifacts]
+[2024-05-18 17:44:55,154: INFO: common: json file saved at: scores.json]
+[2024-05-18 17:44:55,155: INFO: common: json file saved at: scores.json]
+[2024-05-18 17:44:56,736: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2024-05-18 17:44:57,517: INFO: builder_impl: Assets written to: /tmp/tmpmniydpda/model/data/model/assets]
+[2024-05-18 17:45:05,380: INFO: dir_util: creating /home/deltan/Documents/Chest-cancer-classification-MLOps/mlruns/0/aa6bcdb33f9740f89f639322d33215d2/artifacts/model/data]
+[2024-05-18 17:45:05,381: INFO: dir_util: creating /home/deltan/Documents/Chest-cancer-classification-MLOps/mlruns/0/aa6bcdb33f9740f89f639322d33215d2/artifacts/model/data/model]
+[2024-05-18 17:45:05,382: INFO: dir_util: creating /home/deltan/Documents/Chest-cancer-classification-MLOps/mlruns/0/aa6bcdb33f9740f89f639322d33215d2/artifacts/model/data/model/variables]
+[2024-05-18 17:45:05,542: INFO: dir_util: creating /home/deltan/Documents/Chest-cancer-classification-MLOps/mlruns/0/aa6bcdb33f9740f89f639322d33215d2/artifacts/model/data/model/assets]
+[2024-05-18 17:45:05,576: INFO: main: >>>>>> stage Evaluation completed <<<<<<
+
+x==========x]
+[2024-05-18 17:47:27,742: INFO: stage_01_data_ingestion: >>> Stage Data Ingestion Stage started <<<]
+[2024-05-18 17:47:27,744: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:47:27,745: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:47:27,746: INFO: common: created directory at: artifacts]
+[2024-05-18 17:47:27,747: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 17:47:27,747: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:47:39,702: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 17:47:40,335: INFO: stage_01_data_ingestion: >>> Stage Data Ingestion Stage completed <<<
+
+X=====X]
+[2024-05-18 17:47:44,907: INFO: stage_02_prepare_base_model: *******************]
+[2024-05-18 17:47:44,907: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 17:47:44,909: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:47:44,910: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:47:44,910: INFO: common: created directory at: artifacts]
+[2024-05-18 17:47:44,910: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 17:47:45,509: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 17:47:45,819: INFO: stage_02_prepare_base_model: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 17:47:50,037: INFO: stage_03_model_trainer: *******************]
+[2024-05-18 17:47:50,037: INFO: stage_03_model_trainer: >>>>>> stage Training started <<<<<<]
+[2024-05-18 17:47:50,040: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 17:47:50,041: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 17:47:50,042: INFO: common: created directory at: artifacts]
+[2024-05-18 17:47:50,042: INFO: common: created directory at: artifacts/training]
+[2024-05-18 17:51:31,989: INFO: stage_03_model_trainer: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-05-18 18:03:18,105: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2024-05-18 18:03:18,106: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 18:03:18,107: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 18:03:18,107: INFO: common: created directory at: artifacts]
+[2024-05-18 18:03:18,108: INFO: common: created directory at: artifacts/data_ingestion]
+[2024-05-18 18:03:18,108: INFO: data_ingestion: Downloading data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 18:03:30,519: INFO: data_ingestion: Downloaded data from https://drive.google.com/file/d/1L-Qb6Tg-G2IfnLlFWjdQ84W0qDQYtIgm/view?usp=sharing into file artifacts/data_ingestion/data.zip]
+[2024-05-18 18:03:31,433: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2024-05-18 18:03:31,433: INFO: main: *******************]
+[2024-05-18 18:03:31,433: INFO: main: >>>>>> stage Prepare base model started <<<<<<]
+[2024-05-18 18:03:31,434: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 18:03:31,435: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 18:03:31,435: INFO: common: created directory at: artifacts]
+[2024-05-18 18:03:31,435: INFO: common: created directory at: artifacts/prepare_base_model]
+[2024-05-18 18:03:31,952: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2024-05-18 18:03:32,307: INFO: main: >>>>>> stage Prepare base model completed <<<<<<
+
+x==========x]
+[2024-05-18 18:03:32,307: INFO: main: *******************]
+[2024-05-18 18:03:32,308: INFO: main: >>>>>> stage Training started <<<<<<]
+[2024-05-18 18:03:32,309: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 18:03:32,310: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 18:03:32,310: INFO: common: created directory at: artifacts]
+[2024-05-18 18:03:32,311: INFO: common: created directory at: artifacts/training]
+[2024-05-18 18:06:48,358: INFO: main: >>>>>> stage Training completed <<<<<<
+
+x==========x]
+[2024-05-18 18:06:48,359: INFO: main: *******************]
+[2024-05-18 18:06:48,359: INFO: main: >>>>>> stage Evaluation started <<<<<<]
+[2024-05-18 18:06:48,361: INFO: common: yaml file: config/config.yaml loaded successfully]
+[2024-05-18 18:06:48,362: INFO: common: yaml file: params.yaml loaded successfully]
+[2024-05-18 18:06:48,362: INFO: common: created directory at: artifacts]
+[2024-05-18 18:06:48,362: INFO: stage_04_model_evaluation: Starting model evaluation...]
+[2024-05-18 18:06:48,362: INFO: model_evaluation_mlflow: Loading the model...]
+[2024-05-18 18:06:48,727: INFO: model_evaluation_mlflow: Setting up validation data generator...]
+[2024-05-18 18:06:48,735: INFO: model_evaluation_mlflow: Evaluating the model...]
+[2024-05-18 18:07:30,871: INFO: model_evaluation_mlflow: Evaluation completed. Loss: 6.031672477722168, Accuracy: 0.5164835453033447]
+[2024-05-18 18:07:30,873: INFO: common: json file saved at: scores.json]
+[2024-05-18 18:07:30,873: INFO: model_evaluation_mlflow: Scores saved successfully at 'scores.json']
+[2024-05-18 18:07:30,873: INFO: stage_04_model_evaluation: Model evaluation completed. Saving scores...]
+[2024-05-18 18:07:30,874: INFO: common: json file saved at: scores.json]
+[2024-05-18 18:07:30,874: INFO: model_evaluation_mlflow: Scores saved successfully at 'scores.json']
+[2024-05-18 18:07:30,874: INFO: stage_04_model_evaluation: Scores saved successfully.]
+[2024-05-18 18:07:30,874: INFO: main: >>>>>> stage Evaluation completed <<<<<<
+
+x==========x]
