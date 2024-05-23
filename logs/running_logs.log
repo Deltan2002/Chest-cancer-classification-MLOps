@@ -455,3 +455,12 @@ x==========x]
 [2024-05-18 18:07:30,874: INFO: main: >>>>>> stage Evaluation completed <<<<<<
 
 x==========x]
+[2024-05-23 11:33:51,063: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000]
+[2024-05-23 11:33:51,064: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2024-05-23 11:33:51,065: INFO: _internal:  * Restarting with stat]
+[2024-05-23 11:33:53,988: WARNING: _internal:  * Debugger is active!]
+[2024-05-23 11:33:53,989: INFO: _internal:  * Debugger PIN: 128-219-191]
+[2024-05-23 11:33:59,608: INFO: _internal: 127.0.0.1 - - [23/May/2024 11:33:59] "GET / HTTP/1.1" 200 -]
+[2024-05-23 11:34:23,045: INFO: _internal: 127.0.0.1 - - [23/May/2024 11:34:23] "POST /predict HTTP/1.1" 200 -]
+[2024-05-23 11:35:02,553: INFO: _internal: 127.0.0.1 - - [23/May/2024 11:35:02] "GET / HTTP/1.1" 200 -]
